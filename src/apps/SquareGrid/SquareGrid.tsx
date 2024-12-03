@@ -12,7 +12,7 @@ function App() {
   } = useShapePercentages();
 
   return (
-    <div className="app">
+    <div className="square-grid">
       <Controls
         trianglePercentage={trianglePercentage}
         setTrianglePercentage={setTrianglePercentage}

@@ -11,7 +11,7 @@ export default function HexGrid() {
   }
 
   return (
-    <div className="app">
+    <div className="hex-grid">
       <h1>Hexagonal Tile Grid</h1>
       <Upload onGetImage={onGotImage} />
       <HoneycombGrid image={image} />
