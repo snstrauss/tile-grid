@@ -1,4 +1,4 @@
-import { useDropzone, Accept } from "react-dropzone";
+import { useDropzone } from "react-dropzone";
 
 type UploadProps = {
   onGetImage: (str: string) => void;
@@ -10,8 +10,6 @@ export default function Upload({ onGetImage }: UploadProps) {
     const reader = new FileReader();
     reader.onloadend = () => {
       if (reader.result) {
-        // setImage(reader.result as string);
-        // generateGrid();
         onGetImage(reader.result as string);
       }
     };
@@ -20,7 +18,6 @@ export default function Upload({ onGetImage }: UploadProps) {
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
-    // accept: "image/*" as unknown as Accept,
   });
 
   return (
