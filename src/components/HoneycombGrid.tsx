@@ -14,7 +14,11 @@ type GridProps = {
   image: string | null;
 };
 
+export const NO_IMAGE = "no-image";
+
 export default function HoneycombGrid({ image }: GridProps) {
+  const isNoImage = image === NO_IMAGE;
+
   return (
     image && (
       <Honeycomb
@@ -23,8 +27,12 @@ export default function HoneycombGrid({ image }: GridProps) {
         size={85}
         items={array}
         renderItem={() => (
-          <Hexagon className={`hex-image rotate-${getRandomInt(0, 5)}`}>
-            <img src={image} />
+          <Hexagon
+            className={`hex-image rotate-${getRandomInt(0, 5)} ${
+              isNoImage ? "no-image" : ""
+            }`}
+          >
+            {!isNoImage && <img src={image} />}
           </Hexagon>
         )}
       />
